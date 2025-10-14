@@ -1,6 +1,6 @@
 from typer.testing import CliRunner
 
-from cli import app
+from deprag.cli import app
 
 runner = CliRunner()
 

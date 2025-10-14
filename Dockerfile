@@ -22,4 +22,4 @@ RUN pip install --no-cache-dir -e ".[dev,viz]"
 EXPOSE 80
 
 # Define the entry point for the container
-CMD ["deeptag", "--help"]
+CMD ["deeprag", "--help"]
