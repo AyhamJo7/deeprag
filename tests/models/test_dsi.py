@@ -14,6 +14,6 @@ def test_dsi_retrieval(hydra_dsi_cfg):
     queries = ["who is the lead singer of the beatles?"]
     retrieved_docs = dsi.retrieve(queries)
     assert len(retrieved_docs) == 1
-    assert len(retrieved_docs[0]) == hydra_cfg.model.top_k
+    assert len(retrieved_docs[0]) == hydra_dsi_cfg.model.top_k
     # The base t5-small model will generate gibberish, so we just check the structure
     assert isinstance(retrieved_docs[0][0], str)
