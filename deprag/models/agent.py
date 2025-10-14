@@ -2,8 +2,8 @@ from typing import Optional, Tuple
 
 import torch
 import torch.nn as nn
-from peft import LoraConfig, get_peft_model, PeftModel
-from transformers import AutoModelForCausalLM, AutoTokenizer, PreTrainedModel
+from peft import LoraConfig, get_peft_model
+from transformers import AutoModelForCausalLM
 
 from ..configs.config import ModelConfig
 from .policy_heads import ValueHead

@@ -51,7 +51,7 @@ def train_dsi(config: DeepRAGConfig):
     # Training loop
     dsi.model.train()
     step = 0
-    for epoch in range(100): # Loop indefinitely, break by max_steps
+    for epoch in range(100):  # Loop indefinitely, break by max_steps
         for batch in tqdm(dataloader, desc=f"Epoch {epoch}"):
             if step >= config.train.max_steps:
                 break

@@ -1,5 +1,3 @@
-import torch
-from torch.utils.data import DataLoader
 from tqdm import tqdm
 from transformers import AutoTokenizer
 
@@ -25,7 +23,7 @@ def train_agent(config: DeepRAGConfig):
 
     # Load models
     agent = DeepRAGAgent(config.model).to(config.device)
-    dsi = DSI(config.model).to(config.device) # Needed for the environment
+    dsi = DSI(config.model).to(config.device)  # Needed for the environment
 
     # Load data
     dataset = get_dataset(config.data)
@@ -47,16 +45,16 @@ def train_agent(config: DeepRAGConfig):
             queries=queries,
             tokenizer=tokenizer,
             doc_store=doc_store,
-            retrieval_token_id=tokenizer.convert_tokens_to_ids(config.model.retrieval_token),
+            retrieval_token_id=tokenizer.convert_tokens_to_ids(
+                config.model.retrieval_token
+            ),
             max_new_tokens=config.model.max_new_tokens,
             retrieval_penalty=config.train.retrieval_penalty,
         )
 
         # Perform a PPO optimization step
         stats = ppo_trainer.step(
-            buffer.query_tensors,
-            buffer.response_tensors,
-            buffer.rewards.squeeze(1)
+            buffer.query_tensors, buffer.response_tensors, buffer.rewards.squeeze(1)
         )
 
         if step % config.train.logging_steps == 0:

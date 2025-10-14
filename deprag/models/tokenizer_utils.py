@@ -3,7 +3,9 @@ from typing import List
 from transformers import PreTrainedTokenizer
 
 
-def add_special_tokens(tokenizer: PreTrainedTokenizer, special_tokens: List[str]) -> None:
+def add_special_tokens(
+    tokenizer: PreTrainedTokenizer, special_tokens: List[str]
+) -> None:
     """Adds special tokens to the tokenizer and resizes model embeddings.
 
     Args:

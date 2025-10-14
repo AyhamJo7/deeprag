@@ -43,5 +43,6 @@ def train_joint(config: DeepRAGConfig):
     #     # d. Logging
 
     logger.warning("Joint training loop is not fully implemented yet.")
-    logger.info("This requires a sophisticated orchestration of rollouts, DSI updates, and Agent updates.")
-
+    logger.info(
+        "This requires a sophisticated orchestration of rollouts, DSI updates, and Agent updates."
+    )

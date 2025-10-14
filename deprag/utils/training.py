@@ -1,8 +1,6 @@
-from typing import Optional
-
 import torch
 from torch.optim import AdamW
-from transformers import (SchedulerType, get_scheduler)
+from transformers import SchedulerType, get_scheduler
 
 
 def get_optimizer(model: torch.nn.Module, lr: float, weight_decay: float) -> AdamW:

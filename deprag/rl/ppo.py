@@ -1,11 +1,12 @@
-from typing import Optional
+from typing import TYPE_CHECKING
 
-import torch
-import torch.nn as nn
 from trl import PPOConfig, PPOTrainer
 
 from ..configs.config import TrainConfig
 from ..models.agent import DeepRAGAgent
+
+if TYPE_CHECKING:
+    from .buffers import PPOBuffer
 
 
 class DeepRAGPPOTrainer(PPOTrainer):
@@ -31,7 +32,9 @@ class DeepRAGPPOTrainer(PPOTrainer):
             whiten_advantages=config.ppo.whiten_advantages,
             learning_rate=config.learning_rate,
         )
-        super().__init__(config=ppo_config, model=agent.model, tokenizer=tokenizer, **kwargs)
+        super().__init__(
+            config=ppo_config, model=agent.model, tokenizer=tokenizer, **kwargs
+        )
 
     def train_step(self, buffer: "PPOBuffer") -> dict:
         """Performs a PPO training step.

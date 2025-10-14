@@ -11,7 +11,11 @@ class ValueHead(nn.Module):
 
     def __init__(self, config: PretrainedConfig):
         super().__init__()
-        self.dropout = nn.Dropout(config.hidden_dropout_prob if hasattr(config, 'hidden_dropout_prob') else 0.1)
+        self.dropout = nn.Dropout(
+            config.hidden_dropout_prob
+            if hasattr(config, "hidden_dropout_prob")
+            else 0.1
+        )
         self.summary = nn.Linear(config.hidden_size, 1, bias=False)
 
     def forward(self, hidden_states: torch.Tensor) -> torch.Tensor:

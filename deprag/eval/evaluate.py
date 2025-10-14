@@ -1,12 +1,6 @@
-from typing import List
-
-from tqdm import tqdm
-
 from ..configs.config import DeepRAGConfig
 from ..data.loaders import get_dataset
-from ..models.agent import DeepRAGAgent
 from ..utils.logging import get_logger
-from .metrics import compute_exact_match, compute_f1
 
 logger = get_logger(__name__)
 
@@ -18,11 +12,7 @@ def evaluate(config: DeepRAGConfig):
     # Load model, tokenizer, and data
     # agent = DeepRAGAgent(config.model)
     # tokenizer = ...
-    test_dataset = get_dataset(config.data)
-
-    predictions = []
-    references = []
-    retrieval_counts = []
+    get_dataset(config.data)
 
     # for item in tqdm(test_dataset, desc="Evaluating"):
     #     query = item["question"]

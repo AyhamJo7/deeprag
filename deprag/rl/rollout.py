@@ -55,9 +55,7 @@ def rollout(
 
     # The logprobs are calculated from the logits of the generated sequence
     logprobs = torch.log_softmax(logits, dim=-1)
-    logprobs = torch.gather(
-        logprobs, 2, response_tensors.unsqueeze(-1)
-    ).squeeze(-1)
+    logprobs = torch.gather(logprobs, 2, response_tensors.unsqueeze(-1)).squeeze(-1)
 
     # Create and return the buffer
     buffer = PPOBuffer(
@@ -65,7 +63,9 @@ def rollout(
         response_tensors=response_tensors,
         logprobs=logprobs,
         values=values,
-        rewards=rewards.unsqueeze(1).repeat(1, values.size(1)), # Distribute reward over trajectory
+        rewards=rewards.unsqueeze(1).repeat(
+            1, values.size(1)
+        ),  # Distribute reward over trajectory
     )
     buffer.compute_advantages_and_returns(gamma=0.99, lam=0.95)
 

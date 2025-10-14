@@ -1,4 +1,3 @@
-import json
 from typing import Dict, List, Optional
 
 from ..utils.io import read_jsonl

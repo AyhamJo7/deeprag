@@ -25,6 +25,6 @@ def get_logger(name: str) -> logging.Logger:
 
     # Make sure to only log on the main process
     if not is_main_process():
-        logger.setLevel(logging.WARNING) # Or another level to suppress info
+        logger.setLevel(logging.WARNING)  # Or another level to suppress info
 
     return logger

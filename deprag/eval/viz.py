@@ -2,7 +2,9 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 
-def plot_retrieval_decisions(retrieval_steps: list[int], sequence_length: int, save_path: str):
+def plot_retrieval_decisions(
+    retrieval_steps: list[int], sequence_length: int, save_path: str
+):
     """Plots when retrieval actions were taken during generation.
 
     Args:
@@ -17,10 +19,10 @@ def plot_retrieval_decisions(retrieval_steps: list[int], sequence_length: int, s
     if retrieval_steps:
         timeline[retrieval_steps] = 1
 
-    ax.eventplot(np.where(timeline)[0], orientation='horizontal', colors='b')
+    ax.eventplot(np.where(timeline)[0], orientation="horizontal", colors="b")
     ax.set_xlim(0, sequence_length)
     ax.set_yticks([])
-    ax.set_ylabel('Generation Steps')
-    ax.set_title('Retrieval Decisions Over Time')
+    ax.set_ylabel("Generation Steps")
+    ax.set_title("Retrieval Decisions Over Time")
     plt.savefig(save_path)
     plt.close(fig)

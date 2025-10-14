@@ -30,7 +30,9 @@ class DeepRAGMDP:
     def __init__(self, retrieval_penalty: float):
         self.retrieval_penalty = retrieval_penalty
 
-    def step(self, state: RLEnvironmentState, action: int, is_retrieval: bool) -> Tuple[RLEnvironmentState, float]:
+    def step(
+        self, state: RLEnvironmentState, action: int, is_retrieval: bool
+    ) -> Tuple[RLEnvironmentState, float]:
         """Performs a state transition.
 
         Args:
@@ -53,7 +55,7 @@ class DeepRAGMDP:
         next_state = RLEnvironmentState(
             query=state.query,
             history=new_history,
-            retrieved_docs=state.retrieved_docs, # This would be updated after a real retrieval
+            retrieved_docs=state.retrieved_docs,  # This would be updated after a real retrieval
             step=state.step + 1,
         )
 
