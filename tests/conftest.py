@@ -16,7 +16,9 @@ def hydra_dsi_cfg():
     """Fixture for DSI model config."""
     GlobalHydra.instance().clear()
     with initialize(config_path="../deprag/configs", version_base="1.3"):
-        cfg = compose(config_name="defaults", overrides=["data=synthetic", "model=dsi_small"])
+        cfg = compose(
+            config_name="defaults", overrides=["data=synthetic", "model=dsi_small"]
+        )
         yield cfg
 
 
@@ -25,5 +27,7 @@ def hydra_agent_cfg():
     """Fixture for Agent model config."""
     GlobalHydra.instance().clear()
     with initialize(config_path="../deprag/configs", version_base="1.3"):
-        cfg = compose(config_name="defaults", overrides=["data=synthetic", "model=agent_small"])
+        cfg = compose(
+            config_name="defaults", overrides=["data=synthetic", "model=agent_small"]
+        )
         yield cfg
