@@ -35,7 +35,7 @@ DeepRAG is a PyTorch-based framework for building and training Retrieval-Augment
 
 1.  **Prepare synthetic data for smoke testing:**
     ```bash
-    python cli.py prepare-data --config-name=data/synthetic
+    deeprag
     ```
 
 2.  **Run the smoke tests to verify the installation:**
