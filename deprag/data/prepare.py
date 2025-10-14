@@ -27,7 +27,7 @@ def prepare_data(config: DeepRAGConfig) -> None:
             data = json.load(f)
 
         documents = []
-        for item in data["validation"]:
+        for item in data:
             for title, sentences in zip(
                 item["context"]["title"], item["context"]["sentences"]
             ):
