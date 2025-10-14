@@ -21,6 +21,7 @@ class DataConfig:
 class ModelConfig:
     name: str = "dsi_small"
     model_name_or_path: str = "t5-small"
+    max_seq_length: int = 512
     use_lora: bool = False
     lora_r: int = 8
     lora_alpha: int = 16

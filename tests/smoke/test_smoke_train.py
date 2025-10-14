@@ -14,14 +14,13 @@ def test_smoke_train_dsi():
     with initialize(config_path="../../deprag/configs", version_base="1.3"):
         cfg = compose(
             config_name="defaults",
-            overrides=[
-                "data=synthetic",
-                "model=dsi_small",
-                "train=dsi_pretrain",
-                "training.max_steps=1",
-                "training.batch_size=1",
-                "device=cpu",
-            ],
-        )
+                    overrides=[
+                        "data=synthetic",
+                        "model=dsi_small",
+                        "train=dsi_pretrain",
+                        "train.max_steps=1",
+                        "train.batch_size=1",
+                        "device=cpu",
+                    ],        )
         # The test passes if this runs without raising an exception
         train_dsi(cfg)
