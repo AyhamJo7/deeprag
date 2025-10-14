@@ -24,7 +24,7 @@ def prepare_data(config: DeepRAGConfig) -> None:
         # For the synthetic dataset, the docs are part of the fixture file.
         # We extract them here.
         with open(config.data.path, "r") as f:
-            data = json.load(f)
+            data = [json.loads(line) for line in f]
 
         documents = []
         for item in data:
