@@ -1,5 +1,5 @@
 dataset_name: "synthetic"
-path: "tests/fixtures/hotpotqa_dev_sample.json"
+path: "tests/fixtures/hotpotqa_dev_sample.jsonl"
 
 # Preprocessing
 max_seq_length: 128
