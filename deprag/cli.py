@@ -31,7 +31,7 @@ def run_hydra_job(task_function, overrides: list[str]):
         else:
             other_overrides.append(o)
 
-    with initialize(config_path="deprag/configs", version_base="1.3"):
+    with initialize(config_path="configs", version_base="1.3"):
         cfg = compose(config_name=config_name, overrides=other_overrides)
         task_function(cfg)
 
