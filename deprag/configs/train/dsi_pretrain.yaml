@@ -1,0 +1,23 @@
+# DSI Pre-training: (Query, DocID)
+task: "dsi_pretrain"
+
+# Training loop settings
+max_steps: 50000
+learning_rate: 5.0e-5
+warmup_steps: 1000
+weight_decay: 0.01
+gradient_clipping: 1.0
+batch_size: 32 # Per device
+gradient_accumulation_steps: 1
+eval_every_steps: 2500
+logging_steps: 100
+
+# Optimizer
+optimizer: "AdamW"
+
+# Checkpointing
+checkpoint_dir: "checkpoints/dsi_pretrain"
+save_total_limit: 3
+
+# Dataloader
+num_workers: 4

@@ -1,0 +1,23 @@
+
+# @package _global_
+
+defaults:
+  - _self_
+  - data: hotpotqa
+  - model: dsi_small
+  - train: dsi_pretrain
+  - override hydra/job_logging: colorlog
+  - override hydra/hydra_logging: colorlog
+
+hydra:
+  run:
+    dir: outputs/${now:%Y-%m-%d}/${now:%H-%M-%S}
+  sweep:
+    dir: multirun/${now:%Y-%m-%d}/${now:%H-%M-%S}
+    subdir: ${hydra.job.num}
+
+# General project configuration
+project_name: "deeprag"
+seed: 42
+device: "cuda" # "cuda" or "cpu"
+distributed: false

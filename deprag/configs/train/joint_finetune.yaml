@@ -1,0 +1,19 @@
+task: "joint_finetune"
+
+# This task combines DSI and Agent training signals.
+# It can use PPO or a simpler imitation learning objective.
+
+# Use PPO settings from agent_ppo by default
+ddefaults:
+  - agent_ppo
+
+# Override learning rates for joint training
+learning_rate: 1.0e-6 # Agent LR
+dsi_learning_rate: 5.0e-7 # DSI LR
+
+# Training loop settings
+max_steps: 20000
+
+# Checkpointing
+checkpoint_dir: "checkpoints/joint_finetune"
+save_total_limit: 2

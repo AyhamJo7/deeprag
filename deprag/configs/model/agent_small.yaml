@@ -1,0 +1,22 @@
+name: "agent_small"
+
+# Base model from Hugging Face
+model_name_or_path: "t5-small"
+
+# Architecture
+use_lora: true
+lora_r: 8
+lora_alpha: 16
+lora_dropout: 0.05
+lora_target_modules:
+  - "q"
+  - "v"
+
+# Special tokens
+retrieval_token: "<RET>"
+doc_start_token: "<DOC>"
+doc_end_token: "</DOC>"
+
+# Generation settings
+max_new_tokens: 50
+num_beams: 3

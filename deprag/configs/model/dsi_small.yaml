@@ -1,0 +1,14 @@
+name: "dsi_small"
+
+# Base model from Hugging Face
+model_name_or_path: "t5-small"
+
+# Architecture
+use_lora: false # DSI is often trained more fully
+
+# Doc ID configuration
+doc_id_prefix: "doc-"
+num_doc_ids_per_batch: 8 # For contrastive loss
+
+# Inference
+top_k: 5 # Number of doc IDs to retrieve

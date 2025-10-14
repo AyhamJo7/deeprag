@@ -1,0 +1,36 @@
+task: "agent_ppo"
+
+# PPO-specific hyperparameters
+ppo:
+  p_steps: 256
+  p_epochs: 4
+  p_batch_size: 16
+  init_kl_coef: 0.2
+  target_kl: 6.0
+  adap_kl_ctrl: true
+  gamma: 1.0
+  lam: 0.95
+  clip_range: 0.2
+  clip_range_vf: null
+  vf_coef: 0.1
+  whiten_advantages: true
+
+# Reward function
+reward_fn: "qa_em"
+retrieval_penalty: 0.1 # Penalty per retrieval action
+
+# Training loop settings
+max_steps: 10000
+learning_rate: 2.0e-6
+warmup_steps: 100
+weight_decay: 0.0
+gradient_clipping: 1.0
+batch_size: 8 # Number of episodes per batch
+
+# Logging and evaluation
+logging_steps: 10
+eval_every_steps: 100
+
+# Checkpointing
+checkpoint_dir: "checkpoints/agent_ppo"
+save_total_limit: 2

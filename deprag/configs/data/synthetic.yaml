@@ -1,0 +1,14 @@
+dataset_name: "synthetic"
+path: "tests/fixtures/hotpotqa_dev_sample.json"
+
+# Preprocessing
+max_seq_length: 128
+max_answer_length: 32
+
+# Document store
+doc_store_path: "data/synthetic_docs.jsonl"
+
+# Splits (use the same file for all)
+train_split: "validation"
+val_split: "validation"
+test_split: "validation"

@@ -1,0 +1,15 @@
+dataset_name: "hotpot_qa"
+path: "hotpot_qa"
+subset: "fullwiki"
+
+# Preprocessing
+max_seq_length: 512
+max_answer_length: 64
+
+# Document store
+doc_store_path: "data/hotpotqa_docs.jsonl"
+
+# Splits
+train_split: "train"
+val_split: "validation"
+test_split: "test"
