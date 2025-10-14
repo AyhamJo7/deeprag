@@ -1,4 +1,3 @@
-import hydra
 import typer
 from hydra import compose, initialize
 
