@@ -36,31 +36,41 @@ def run_hydra_job(task_function, overrides: list[str]):
         task_function(cfg)
 
 
-@app.command(context_settings={"allow_extra_args": True, "ignore_unknown_options": True})
+@app.command(
+    context_settings={"allow_extra_args": True, "ignore_unknown_options": True}
+)
 def train_dsi(ctx: typer.Context):
     """Pre-train the Differentiable Search Index (DSI)."""
     run_hydra_job(train_dsi_func, ctx.args)
 
 
-@app.command(context_settings={"allow_extra_args": True, "ignore_unknown_options": True})
+@app.command(
+    context_settings={"allow_extra_args": True, "ignore_unknown_options": True}
+)
 def train_agent(ctx: typer.Context):
     """Train the agent using Reinforcement Learning (PPO)."""
     run_hydra_job(train_agent_func, ctx.args)
 
 
-@app.command(context_settings={"allow_extra_args": True, "ignore_unknown_options": True})
+@app.command(
+    context_settings={"allow_extra_args": True, "ignore_unknown_options": True}
+)
 def train_joint(ctx: typer.Context):
     """Jointly fine-tune the DSI and the agent."""
     run_hydra_job(train_joint_func, ctx.args)
 
 
-@app.command(context_settings={"allow_extra_args": True, "ignore_unknown_options": True})
+@app.command(
+    context_settings={"allow_extra_args": True, "ignore_unknown_options": True}
+)
 def evaluate_model(ctx: typer.Context):
     """Evaluate a trained DeepRAG model."""
     run_hydra_job(evaluate_func, ctx.args)
 
 
-@app.command(context_settings={"allow_extra_args": True, "ignore_unknown_options": True})
+@app.command(
+    context_settings={"allow_extra_args": True, "ignore_unknown_options": True}
+)
 def prepare_data(ctx: typer.Context):
     """Prepare datasets and document stores."""
     run_hydra_job(prepare_data_script, ctx.args)
