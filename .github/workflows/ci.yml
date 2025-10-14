@@ -35,5 +35,5 @@ jobs:
     - name: Test with pytest
       run: |
         pip install pytest
-        python cli.py prepare-data --config-name=data/synthetic
+        deeprag prepare-data --config-name=data/synthetic
         pytest
