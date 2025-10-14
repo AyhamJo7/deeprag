@@ -58,7 +58,7 @@ def prepare_data(config: DeepRAGConfig) -> None:
     logger.info(f"Successfully created document store with {len(documents)} documents.")
 
 
-@hydra.main(config_path="../deprag/configs", config_name="defaults", version_base="1.3")
+@hydra.main(config_path="../../configs", config_name="defaults", version_base="1.3")
 def main(cfg: DeepRAGConfig) -> None:
     prepare_data(cfg)
 

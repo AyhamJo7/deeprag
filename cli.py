@@ -6,7 +6,7 @@ from deprag.trainers.train_agent import train_agent as train_agent_func
 from deprag.trainers.train_dsi import train_dsi as train_dsi_func
 from deprag.trainers.train_joint import train_joint as train_joint_func
 from deprag.eval.evaluate import evaluate as evaluate_func
-from deprag.scripts.prepare_data import prepare_data as prepare_data_script
+from deprag.data.prepare import prepare_data as prepare_data_script
 
 # Register structured configs with Hydra
 register_configs()
