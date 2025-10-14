@@ -1,5 +1,6 @@
 import pytest
 from hydra import compose, initialize
+from hydra.core.global_hydra import GlobalHydra
 
 from deprag.configs.config import register_configs
 from deprag.trainers.train_dsi import train_dsi
@@ -9,6 +10,7 @@ from deprag.trainers.train_dsi import train_dsi
 def test_smoke_train_dsi():
     """Run a single step of DSI training to catch integration errors."""
     register_configs()
+    GlobalHydra.instance().clear()
     with initialize(config_path="../../deprag/configs", version_base="1.3"):
         cfg = compose(
             config_name="defaults",

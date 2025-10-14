@@ -28,6 +28,7 @@ dependencies = [
     "typer>=0.9.0",
     "rank_bm25",
     "rouge_score",
+    "sentencepiece",
 ]
 
 [project.urls]
