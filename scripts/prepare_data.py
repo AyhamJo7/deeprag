@@ -1,5 +1,4 @@
 import json
-from typing import Dict, List
 
 import hydra
 from datasets import load_dataset
@@ -26,10 +25,12 @@ def prepare_data(config: DeepRAGConfig) -> None:
         # We extract them here.
         with open(config.data.path, "r") as f:
             data = json.load(f)
-        
+
         documents = []
         for item in data["validation"]:
-            for title, sentences in zip(item["context"]["title"], item["context"]["sentences"]):
+            for title, sentences in zip(
+                item["context"]["title"], item["context"]["sentences"]
+            ):
                 doc_id = f"doc-{title.replace(' ', '_')}"
                 text = " ".join(sentences)
                 documents.append({"doc_id": doc_id, "text": text})
@@ -41,7 +42,9 @@ def prepare_data(config: DeepRAGConfig) -> None:
 
         for split in [config.data.train_split, config.data.val_split]:
             for item in tqdm(dataset[split], desc=f"Processing {split} split"):
-                for title, sentences in zip(item["context"]["title"], item["context"]["sentences"]):
+                for title, sentences in zip(
+                    item["context"]["title"], item["context"]["sentences"]
+                ):
                     if title not in seen_titles:
                         doc_id = f"doc-{title.replace(' ', '_')}"
                         text = " ".join(sentences)
