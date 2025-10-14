@@ -6,8 +6,8 @@ from hydra.core.config_store import ConfigStore
 
 @dataclass
 class DataConfig:
-    dataset_name: str
-    path: str
+    dataset_name: str = "hotpot_qa"
+    path: str = "hotpot_qa"
     subset: Optional[str] = None
     max_seq_length: int = 512
     max_answer_length: int = 64
@@ -19,8 +19,8 @@ class DataConfig:
 
 @dataclass
 class ModelConfig:
-    name: str
-    model_name_or_path: str
+    name: str = "dsi_small"
+    model_name_or_path: str = "t5-small"
     use_lora: bool = False
     lora_r: int = 8
     lora_alpha: int = 16
@@ -54,13 +54,13 @@ class PPOConfig:
 
 @dataclass
 class TrainConfig:
-    task: str
-    max_steps: int
-    learning_rate: float
-    warmup_steps: int
-    weight_decay: float
-    gradient_clipping: float
-    batch_size: int
+    task: str = "dsi_pretrain"
+    max_steps: int = 50000
+    learning_rate: float = 5.0e-5
+    warmup_steps: int = 1000
+    weight_decay: float = 0.01
+    gradient_clipping: float = 1.0
+    batch_size: int = 32
     gradient_accumulation_steps: int = 1
     eval_every_steps: int = 1000
     logging_steps: int = 100
