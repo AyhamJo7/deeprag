@@ -6,7 +6,7 @@
 DeepRAG is a PyTorch-based framework for building and training Retrieval-Augmented Generation (RAG) models where the retrieval step is fully differentiable. It replaces traditional, discrete retrievers (like BM25 or FAISS) with a **Differentiable Search Index (DSI)** and learns a retrieval policy as part of the generation process using reinforcement learning.
 
 <p align="center">
-  <img src="docs/deeprag.png" alt="deeprag Logo" width="400"/>
+  <img src=".github/assets/banner.png" alt="DeepRAG" width="800" />
 </p>
 
 ## Key Features
